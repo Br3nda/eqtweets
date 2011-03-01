@@ -40,9 +40,9 @@ function send_report($item)  {
   $title = substr(html_entity_decode($item->get_title()), 0, 100);
   GLOBAL $pass;
   $command = "curl -u eqnz_live:$pass http://identi.ca/api/statuses/update.xml ";
-  $command .= " -d status='" . escapeshellcmd($title) . " #eqnz " . escapeshellcmd($item->get_permalink()) ."'";
-  $command .= " -d lat='" . escapeshellcmd($item->get_latitude()) . "'";
-  $command .= " -d long='"  . escapeshellcmd($item->get_longitude()).  "'";
+  $command .= " -d status='" . escapeshellarg($title) . " #eqnz " . escapeshellarg($item->get_permalink()) ."'";
+  $command .= " -d lat='" . escapeshellarg($item->get_latitude()) . "'";
+  $command .= " -d long='"  . escapeshellarg($item->get_longitude()).  "'";
   print "$command\n";
   shell_exec($command);
 }
