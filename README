@@ -1,0 +1,14 @@
+The workflow
+
+1) Reports appear on http://eq.org.nz/feed
+2) This script fetches
+3) checks if it's already been sent (table in postgres database)
+4) sends to identica and records
+
+
+the password to the identica account must be passed to bot.php
+
+
+Identi.ca handles the posting to Twitter.
+Google buzz collects from twitter.
+Google maps on smartphones will display the google buzz messages
