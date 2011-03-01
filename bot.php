@@ -37,7 +37,7 @@ function send_report($item)  {
   if (!pg_query("INSERT INTO sent (id) VALUES('". pg_escape_string($id) ."')")) {
     die;
   }
-  $title = substr($item->get_title(), 0, 100);
+  $title = substr(html_entity_decode($item->get_title()), 0, 100);
   GLOBAL $pass;
   $command = "curl -u eqnz_live:$pass http://identi.ca/api/statuses/update.xml ";
   $command .= " -d status='" . escapeshellcmd($title) . " #eqnz " . escapeshellcmd($item->get_permalink()) ."'";
